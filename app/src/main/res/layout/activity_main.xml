@@ -32,14 +32,13 @@
 
     <Button
         android:id="@+id/buttonAdd"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/new_todo_button"
         android:text="@string/button_todo"
-        app:layout_constraintBottom_toTopOf="@+id/todoEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/todoEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/todoEditText" />
 
     <EditText
         android:id="@+id/todoEditText"
@@ -47,25 +46,12 @@
         android:layout_height="50dp"
         android:autofillHints="@string/new_text_hint"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="@string/new_text_hint"
         android:inputType="textPersonName"
         android:textColorHint="#757575"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/editTextYear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextDay"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/month"
-        android:inputType="date"
-        android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDay"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -75,12 +61,25 @@
         android:layout_weight="1"
         android:ems="10"
         android:gravity="center_horizontal"
+        android:hint="@string/month"
+        android:inputType="number"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDay"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="@string/day"
-        android:inputType="date"
+        android:inputType="number"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextYear"
-        app:layout_constraintStart_toEndOf="@+id/editTextDay" />
+        app:layout_constraintStart_toEndOf="@+id/editTextMonth" />
 
     <EditText
         android:id="@+id/editTextYear"
@@ -90,7 +89,7 @@
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/year"
-        android:inputType="date"
+        android:inputType="number"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

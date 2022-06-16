@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         inputDay = findViewById(R.id.editTextDay);
         inputYear = findViewById(R.id.editTextYear);
 
+        btnAdd.setVisibility(View.GONE);
+        inputMonth.setVisibility(View.GONE);
+        inputDay.setVisibility(View.GONE);
+        inputYear.setVisibility(View.GONE);
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,8 +52,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        items = new ArrayList<String>();
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        inputText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnAdd.setVisibility(View.VISIBLE);
+                inputMonth.setVisibility(View.VISIBLE);
+                inputDay.setVisibility(View.VISIBLE);
+                inputYear.setVisibility(View.VISIBLE);
+            }
+        });
+
+        items = new ArrayList<>();
+        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(itemsAdapter);
         setUpListViewListener();
     }
@@ -69,17 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void addItem(View view) {
         String itemText = inputText.getText().toString(); //extracts the string from the editText
-        String itemDate = inputMonth.getText().toString()+"/"+inputDay.getText().toString()+
+        String itemDate = inputMonth.getText().toString()+"-"+inputDay.getText().toString()+"-"+
                 inputYear.getText().toString();
 
-        if(!(itemText.equals("")) && !(itemDate.equals(""))) { //verifies if the string is not empty
-            itemsAdapter.add(itemText + " - " + itemDate);
-            inputText.setText(""); //resets the string inside the input so it can be used again
-            inputMonth.setText("");
-            inputDay.setText("");
-            inputYear.setText("");
+        if(!(itemText.equals("")) && !(itemDate.equals("--"))) { //verifies if the string is not empty
+                itemsAdapter.add(itemText + "   " + itemDate);
+                inputText.setText(""); //resets the string inside the input so it can be used again
+                inputMonth.setText("");
+                inputDay.setText("");
+                inputYear.setText("");
         } else {
-            Toast.makeText(getApplicationContext(), "cannot add empty text", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Cannot add empty text", Toast.LENGTH_SHORT).show();
         }
     }
 }
