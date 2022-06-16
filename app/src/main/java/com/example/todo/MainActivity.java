@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private Button btnAdd;
 
+    private EditText inputText;
+    private EditText inputMonth;
+    private EditText inputDay;
+    private EditText inputYear;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
         btnAdd = findViewById(R.id.buttonAdd);
+
+        inputText = findViewById(R.id.todoEditText);
+
+        inputMonth = findViewById(R.id.editTextMonth);
+        inputDay = findViewById(R.id.editTextDay);
+        inputYear = findViewById(R.id.editTextYear);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,12 +68,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addItem(View view) {
-        EditText input = findViewById(R.id.todoEditText);
-        String itemText = input.getText().toString(); //extracts the string from the editText
+        String itemText = inputText.getText().toString(); //extracts the string from the editText
+        String itemDate = inputMonth.getText().toString()+"/"+inputDay.getText().toString()+
+                inputYear.getText().toString();
 
-        if(!(itemText.equals(""))) { //verifies if the string is not empty
-            itemsAdapter.add(itemText);
-            input.setText(""); //resets the string inside the input so it can be used again
+        if(!(itemText.equals("")) && !(itemDate.equals(""))) { //verifies if the string is not empty
+            itemsAdapter.add(itemText + " - " + itemDate);
+            inputText.setText(""); //resets the string inside the input so it can be used again
+            inputMonth.setText("");
+            inputDay.setText("");
+            inputYear.setText("");
         } else {
             Toast.makeText(getApplicationContext(), "cannot add empty text", Toast.LENGTH_SHORT).show();
         }
