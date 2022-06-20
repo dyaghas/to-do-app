@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">ToDo</string>
-    <string name="button_todo">New</string>
 
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="goToRegister">Does not have an account? Click here</string>
+    <string name="forgotPassword">forgot password</string>
+
+    <string name="button_todo">New</string>
     <string name="new_text_hint">Type your To Do</string>
     <string name="new_date_hint">Choose a date</string>
 
