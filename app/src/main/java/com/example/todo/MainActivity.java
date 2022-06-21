@@ -49,11 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference dbRef = database.getReference("message");
-
-        dbRef.setValue("Hello world!");
-
         listView = findViewById(R.id.listView);
         btnAdd = findViewById(R.id.buttonAdd);
 
