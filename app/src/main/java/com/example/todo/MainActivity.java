@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,12 +24,19 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference ref;
 
     private FirebaseAuth mAuth;
 
@@ -47,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-
         listView = findViewById(R.id.listView);
         btnAdd = findViewById(R.id.buttonAdd);
 
@@ -62,6 +68,33 @@ public class MainActivity extends AppCompatActivity {
         inputMonth.setVisibility(View.GONE);
         inputDay.setVisibility(View.GONE);
         inputYear.setVisibility(View.GONE);
+
+        items = new ArrayList<>();
+        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        listView.setAdapter(itemsAdapter);
+        setUpListViewListener();
+
+        //Firebase authentication
+        mAuth = FirebaseAuth.getInstance();
+
+        //Firebase realtime database
+        ref = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot i : snapshot.getChildren()) {
+                    items.clear();
+                    items.add(snapshot.getValue().toString());
+                }
+                itemsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 inputYear.setVisibility(View.VISIBLE);
             }
         });
-
-        items = new ArrayList<>();
-        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-        listView.setAdapter(itemsAdapter);
-        setUpListViewListener();
     }
 
     @Override
@@ -95,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
+
     }
 
     private void setUpListViewListener() { //method that removes an item if a long click happens
@@ -125,5 +154,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Cannot add empty text", Toast.LENGTH_SHORT).show();
         }
+
+        //Firebase realtime database
+        ref.setValue(items);
     }
 }
