@@ -64,11 +64,6 @@ public class MainActivity extends AppCompatActivity {
         inputDay = findViewById(R.id.editTextDay);
         inputYear = findViewById(R.id.editTextYear);
 
-        btnAdd.setVisibility(View.GONE);
-        inputMonth.setVisibility(View.GONE);
-        inputDay.setVisibility(View.GONE);
-        inputYear.setVisibility(View.GONE);
-
         items = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(itemsAdapter);
@@ -77,39 +72,10 @@ public class MainActivity extends AppCompatActivity {
         //Firebase authentication
         mAuth = FirebaseAuth.getInstance();
 
-        //Firebase realtime database
-        ref = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
-
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot i : snapshot.getChildren()) {
-                    items.clear();
-                    items.add(snapshot.getValue().toString());
-                }
-                itemsAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addItem(view);
-            }
-        });
-
-        inputText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnAdd.setVisibility(View.VISIBLE);
-                inputMonth.setVisibility(View.VISIBLE);
-                inputDay.setVisibility(View.VISIBLE);
-                inputYear.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -122,6 +88,25 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        } else {
+            //Firebase realtime database
+            ref = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    items.clear();
+                    for (DataSnapshot i : snapshot.getChildren()) {
+                        items.add(i.getValue().toString());
+                    }
+                    itemsAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
 
     }
