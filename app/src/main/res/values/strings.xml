@@ -10,7 +10,7 @@
     <string name="options">Options</string>
 
     <string name="goToLogin">Already have an account? Login</string>
-    <string name="goToRegister">Does not have an account? Click here</string>
+    <string name="goToRegister">Register now</string>
     <string name="forgotPassword">forgot password</string>
 
     <string name="button_todo">New</string>

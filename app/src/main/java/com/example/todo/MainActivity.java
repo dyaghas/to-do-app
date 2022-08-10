@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
             //Firebase realtime database
+            //Takes the current user reference in the realtime database
             ref = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
 
             ref.addValueEventListener(new ValueEventListener() {
@@ -116,13 +117,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Context context = getApplicationContext();
-                Toast.makeText(context, "Item removed", Toast.LENGTH_LONG).show();
 
-                items.remove(i); //remove the item in the list with the index i
-                itemsAdapter.notifyDataSetChanged();
+                removeData(i);
+
                 return true;
             }
         });
+    }
+
+    private void removeData(int i) { //remove the list item with index i
+
+        String text = items.get(i);
+
+        ref.child(text).removeValue().
+                addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),
+                            ref.child(text).toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        items.remove(i);
+        itemsAdapter.notifyDataSetChanged();
     }
 
     private void addItem(View view) {
