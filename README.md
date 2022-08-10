@@ -23,11 +23,10 @@ Obs: the app is still in development, because of that, it is possible that some 
 
 ## Technologies
 
-- firebase-database version: 20.0.5
-- firebase-auth version: 21.0.5
+- firebase-database
+- firebase-analytics
+- firebase-auth version: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
-  Build #AI-212.5712.43.2112.8512546, built on April 28, 2022
-  Runtime version: 11.0.12+7-b1504.28-7817840 amd64
   
 ## Functionalities
 
@@ -60,11 +59,10 @@ Obs: o aplicativo ainda está em desenvolvimento, por isso, algumas funcionalida
 
 ## Tecnologias
 
-- firebase-database version: 20.0.5
-- firebase-auth version: 21.0.5
+- firebase-database
+- firebase-analytics
+- firebase-auth version: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
-  Build #AI-212.5712.43.2112.8512546, built on April 28, 2022
-  Runtime version: 11.0.12+7-b1504.28-7817840 amd64
 
 ## Funcionalidades
 
