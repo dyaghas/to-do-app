@@ -91,8 +91,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             //Firebase realtime database
             //Takes the current user reference in the realtime database
-            ref = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
+            ref = FirebaseDatabase.getInstance().getReference(mAuth.getUid());
 
+            //Loads all references previously created by the user
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -127,15 +128,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeData(int i) { //remove the list item with index i
 
-        String text = items.get(i);
+        String id = items.get(i);
 
-        ref.child(text).removeValue().
+        ref.child(String.valueOf(i)).removeValue().
                 addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(),
-                            ref.child(text).toString(), Toast.LENGTH_SHORT).show();
+                            ref.child(id).toString(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
