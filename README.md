@@ -1,4 +1,4 @@
-# ToDoApp
+# ToDoApp | Aplicativo de lembretes
 
 ## Table of contents / Tabela de conteúdo
 
@@ -43,6 +43,8 @@ connected to the specific user that is logged in at the moment.
 
 ![image](https://user-images.githubusercontent.com/56042071/183957161-ffda7b59-d9f3-4bc7-8e62-894c20e07c78.png)
 ![image](https://user-images.githubusercontent.com/56042071/183956834-bc3adf87-6a4b-4cfd-89c3-761e93f5ce6d.png)
+
+# Português
 
 ## Informações gerais
 
