@@ -1,4 +1,4 @@
-# ToDoApp
+# ToDoApp | Aplicativo de lembretes
 
 ## Table of contents / Tabela de conteúdo
 
@@ -12,9 +12,6 @@ Português
 * [Tecnologias](#tecnologias)
 * [Funcionalidades](#funcionalidades)
 
-
-# English
-
 ## General info
 
 Android application that allows the creation of a to-do list, helping the user in his daily life.
@@ -25,7 +22,7 @@ Obs: the app is still in development, because of that, it is possible that some 
 
 - firebase-database
 - firebase-analytics
-- firebase-auth version: 21.0.7
+- firebase-auth versão: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
   
 ## Functionalities
@@ -46,8 +43,6 @@ connected to the specific user that is logged in at the moment.
 
 ![image](https://user-images.githubusercontent.com/56042071/183957161-ffda7b59-d9f3-4bc7-8e62-894c20e07c78.png)
 ![image](https://user-images.githubusercontent.com/56042071/183956834-bc3adf87-6a4b-4cfd-89c3-761e93f5ce6d.png)
-
-
 
 # Português
 
