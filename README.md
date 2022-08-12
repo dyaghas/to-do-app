@@ -22,7 +22,7 @@ Obs: the app is still in development, because of that, it is possible that some 
 
 - firebase-database
 - firebase-analytics
-- firebase-auth version: 21.0.7
+- firebase-auth versão: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
   
 ## Functionalities
