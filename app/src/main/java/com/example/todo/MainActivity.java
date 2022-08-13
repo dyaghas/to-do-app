@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(),
-                            ref.child(id).toString(), Toast.LENGTH_SHORT).show();
+                            "ToDo removed", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
