@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
     private Button btnAdd;
+    private Button btnConfig;
 
     private EditText inputText;
     private EditText inputMonth;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnConfig = findViewById(R.id.btnConfig);
 
         listView = findViewById(R.id.listView);
         btnAdd = findViewById(R.id.buttonAdd);
@@ -68,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(itemsAdapter);
         setUpListViewListener();
+
+        btnConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ConfigActivity.class));
+            }
+        });
 
         //Firebase authentication
         mAuth = FirebaseAuth.getInstance();
@@ -125,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Methods
 
     private void removeData(int i) { //remove the list item with index i
 

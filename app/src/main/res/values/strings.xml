@@ -7,7 +7,8 @@
     <string name="password">Password</string>
     <string name="confirmPassword">Confirm password</string>
 
-    <string name="options">Options</string>
+    <string name="options">options</string>
+    <string name="logout">Log out</string>
 
     <string name="goToLogin">Already have an account? Login</string>
     <string name="goToRegister">Register now</string>
