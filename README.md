@@ -6,11 +6,13 @@ English
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Functionalities](#functionalities)
+* [Options](#options)
 
 Português
 * [Informações gerais](#informações-gerais)
 * [Tecnologias](#tecnologias)
 * [Funcionalidades](#funcionalidades)
+* [Configurações](#configurações)
 
 ## General info
 
@@ -44,6 +46,13 @@ connected to the specific user that is logged in at the moment.
 ![image](https://user-images.githubusercontent.com/56042071/183957161-ffda7b59-d9f3-4bc7-8e62-894c20e07c78.png)
 ![image](https://user-images.githubusercontent.com/56042071/183956834-bc3adf87-6a4b-4cfd-89c3-761e93f5ce6d.png)
 
+### Options
+
+The options tab can be accessed through its button in the upper-right screen corner, allowing the user to disconnect from his account.
+
+![image](https://user-images.githubusercontent.com/56042071/184500482-a2e2a3e9-1ee8-426a-a76e-fa257a618556.png)
+![image](https://user-images.githubusercontent.com/56042071/184500570-d62e7cbb-1992-4b5d-8b8b-19649e0dc3c5.png)
+
 # Português
 
 ## Informações gerais
@@ -76,3 +85,10 @@ do usuário que está logado no momento.
 
 ![image](https://user-images.githubusercontent.com/56042071/183957161-ffda7b59-d9f3-4bc7-8e62-894c20e07c78.png)
 ![image](https://user-images.githubusercontent.com/56042071/183956834-bc3adf87-6a4b-4cfd-89c3-761e93f5ce6d.png)
+
+### Configurações
+
+A aba de configurações pode ser acessada através do botão no canto direito superior da tela, permitindo que o usuário saia da conta atual.
+
+![image](https://user-images.githubusercontent.com/56042071/184500482-a2e2a3e9-1ee8-426a-a76e-fa257a618556.png)
+![image](https://user-images.githubusercontent.com/56042071/184500570-d62e7cbb-1992-4b5d-8b8b-19649e0dc3c5.png)
