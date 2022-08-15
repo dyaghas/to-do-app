@@ -6,7 +6,7 @@ English
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Functionalities](#functionalities)
-* [Options](#options)
+* [Settings](#settings)
 
 Português
 * [Informações gerais](#informações-gerais)
@@ -46,12 +46,21 @@ connected to the specific user that is logged in at the moment.
 ![image](https://user-images.githubusercontent.com/56042071/183957161-ffda7b59-d9f3-4bc7-8e62-894c20e07c78.png)
 ![image](https://user-images.githubusercontent.com/56042071/183956834-bc3adf87-6a4b-4cfd-89c3-761e93f5ce6d.png)
 
-### Options
+### Settings
 
-The options tab can be accessed through its button in the upper-right screen corner, allowing the user to disconnect from his account.
+The options tab can be accessed through its button in the upper-right screen corner, allowing the user to disconnect from his account
+or change his email address.
 
 ![image](https://user-images.githubusercontent.com/56042071/184500482-a2e2a3e9-1ee8-426a-a76e-fa257a618556.png)
-![image](https://user-images.githubusercontent.com/56042071/184500570-d62e7cbb-1992-4b5d-8b8b-19649e0dc3c5.png)
+![image](https://user-images.githubusercontent.com/56042071/184655973-c4b618f1-dcca-4b94-a904-e406c5540967.png)
+
+#### Change Email address
+
+To change the email address, it is necessary to provide the user credentials again. That's a security measure from Firebase
+Auth.
+
+![image](https://user-images.githubusercontent.com/56042071/184658390-e3a84ba9-ff24-4504-afed-9935d240c30e.png)
+
 
 # Português
 
@@ -88,7 +97,15 @@ do usuário que está logado no momento.
 
 ### Configurações
 
-A aba de configurações pode ser acessada através do botão no canto direito superior da tela, permitindo que o usuário saia da conta atual.
+A aba de configurações pode ser acessada através do botão no canto direito superior da tela, permitindo que o usuário saia da conta atual ou 
+altere seu endereço de email.
 
 ![image](https://user-images.githubusercontent.com/56042071/184500482-a2e2a3e9-1ee8-426a-a76e-fa257a618556.png)
-![image](https://user-images.githubusercontent.com/56042071/184500570-d62e7cbb-1992-4b5d-8b8b-19649e0dc3c5.png)
+![image](https://user-images.githubusercontent.com/56042071/184655973-c4b618f1-dcca-4b94-a904-e406c5540967.png)
+
+#### Alterar endereço de email
+
+Para alterar o endereço de email associado a conta, o usuário precisa inserir suas credenciais novamente. Isso é uma forma do Firebase Auth
+garantir a segurança da conta.
+
+![image](https://user-images.githubusercontent.com/56042071/184658282-fd42eff7-10ed-4f5b-be78-47487b2471bb.png)
