@@ -140,8 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeData(int i) { //remove the list item with index i
 
-        String id = items.get(i);
-
         ref.child(String.valueOf(i)).removeValue().
                 addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

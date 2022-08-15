@@ -5,14 +5,20 @@
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirmPassword">Confirm password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm">Confirm</string>
 
     <string name="options">options</string>
     <string name="logout">Log out</string>
+    <string name="change_email">Change email</string>
+    <string name="change_password">Change password</string>
 
-    <string name="goToLogin">Already have an account? Login</string>
-    <string name="goToRegister">Register now</string>
-    <string name="forgotPassword">forgot password</string>
+    <string name="current_email">Current email</string>
+    <string name="current_password">Current password</string>
+
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="go_to_register">Register now</string>
+    <string name="forgot_password">forgot password</string>
 
     <string name="button_todo">New</string>
     <string name="new_text_hint">Type your To Do</string>
