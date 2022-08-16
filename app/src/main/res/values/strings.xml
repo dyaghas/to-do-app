@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name">ToDo</string>
+    <string name="app_name" translatable="false">ToDo</string>
 
     <string name="login">Login</string>
-    <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
@@ -27,5 +26,6 @@
     <string name="day">Day</string>
     <string name="month">Month</string>
     <string name="year">Year</string>
-    <string name="dash">-</string>
+    <string name="dash" translatable="false">-</string>
+    <string name="register">Registrar</string>
 </resources>

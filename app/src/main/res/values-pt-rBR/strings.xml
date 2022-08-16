@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar senha</string>
+    <string name="confirm">Confirmar</string>
+    <string name="options">Opções</string>
+    <string name="logout">Sair</string>
+    <string name="change_email">Alterar email</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="current_email">Email atual</string>
+    <string name="current_password">Senha atual</string>
+    <string name="go_to_login">Já possui uma conta? Entrar</string>
+    <string name="go_to_register">Registrar-se</string>
+    <string name="forgot_password">Esqueci a senha</string>
+    <string name="button_todo">Novo</string>
+    <string name="new_text_hint">Digite seu lembrete</string>
+    <string name="new_date_hint">Escolha uma data</string>
+    <string name="day">Dia</string>
+    <string name="month">Mês</string>
+    <string name="year">Ano</string>
+    <string name="register">Registrar</string>
+    <string name="login">Entrar</string>
+    <string name="email">e-mail</string>
+</resources>
