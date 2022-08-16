@@ -1,16 +1,21 @@
 package com.example.todo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ConfigActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private LinearLayout logoutLayout;
     private LinearLayout changeEmailLayout;
@@ -23,6 +28,7 @@ public class ConfigActivity extends AppCompatActivity {
 
         logoutLayout = findViewById(R.id.logoutLayout);
         changeEmailLayout = findViewById(R.id.changeEmailLayout);
+        changePasswordLayout = findViewById(R.id.changePasswordLayout);
 
         logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +45,11 @@ public class ConfigActivity extends AppCompatActivity {
             }
         });
 
+        changePasswordLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ConfigActivity.this, ChangePasswordActivity.class));
+            }
+        });
     }
 }

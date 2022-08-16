@@ -13,7 +13,11 @@
     <string name="change_password">Change password</string>
 
     <string name="current_email">Current email</string>
+    <string name="new_email">New email</string>
     <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+
 
     <string name="go_to_login">Already have an account? Login</string>
     <string name="go_to_register">Register now</string>
@@ -27,5 +31,5 @@
     <string name="month">Month</string>
     <string name="year">Year</string>
     <string name="dash" translatable="false">-</string>
-    <string name="register">Registrar</string>
+    <string name="register">Register</string>
 </resources>

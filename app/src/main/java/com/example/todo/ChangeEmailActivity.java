@@ -49,13 +49,10 @@ public class ChangeEmailActivity extends AppCompatActivity {
 
         getWindow().setLayout((int) (width*.8), (int) (height*.6));
 
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                changeEmail();
+        btnConfirm.setOnClickListener(view -> {
+            changeEmail();
 
-                finish();
-            }
+            finish();
         });
     }
 
@@ -71,25 +68,19 @@ public class ChangeEmailActivity extends AppCompatActivity {
 
         //prompt user authentication as changing email address is a sensitive operation
         assert user != null;
-        user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Log.d(TAG, "User re-authenticated.");
+        user.reauthenticate(credential).addOnCompleteListener(task -> {
+            Log.d(TAG, "User re-authenticated.");
 
-                //Change email address
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                assert user != null;
-                user.updateEmail(newEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "User email address updated.");
-                            Toast.makeText(ChangeEmailActivity.this,
-                                    "Email successfully changed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
+            //Change email address
+            FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+            assert user1 != null;
+            user1.updateEmail(newEmail).addOnCompleteListener(task1 -> {
+                if (task1.isSuccessful()) {
+                    Log.d(TAG, "User email address updated.");
+                    Toast.makeText(ChangeEmailActivity.this,
+                            "Email successfully changed", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }
