@@ -80,6 +80,9 @@ public class RegisterActivity extends AppCompatActivity {
                                         "Account successfully created", Toast.LENGTH_SHORT)
                                         .show();
                                 FirebaseUser user = mAuth.getCurrentUser();
+
+                                startActivity(new Intent(
+                                        RegisterActivity.this, LoginActivity.class));
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
