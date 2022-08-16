@@ -56,8 +56,7 @@ or change his email address.
 
 #### Change Email address
 
-To change the email address, it is necessary to provide the user credentials again. That's a security measure from Firebase
-Auth.
+To change the email address, it is necessary to provide the user credentials again. That's a security measure from Firebase Auth.
 
 ![image](https://user-images.githubusercontent.com/56042071/184975145-a63a04a4-b384-4f27-9074-7c8e84709087.png)
 ![image](https://user-images.githubusercontent.com/56042071/184973803-c5544288-3ca6-4be6-9676-a79da3c5e741.png)
@@ -68,7 +67,8 @@ Auth.
 
 Aplicativo android que permite a criação de lembretes.
 
-Obs: o aplicativo ainda está em desenvolvimento, por isso, algumas funcionalidades podem não ter sido implementadas ou estarem funcionando.
+Obs: o aplicativo ainda está em desenvolvimento e por isso, algumas funcionalidades podem não ter sido implementadas ou não estarem 
+funcionando.
 
 ## Tecnologias
 
@@ -81,8 +81,8 @@ Obs: o aplicativo ainda está em desenvolvimento, por isso, algumas funcionalida
 
 ### Cadastro / login
 
-Ao entrar no aplicativo pela primeira vez, o usuário se deparará com a tela de login. Caso não possua uma conta, basta clicar em "Register now"
-e realizar os procedimentos necessários para acessar as funcionalidades do app.
+Ao entrar no aplicativo pela primeira vez, o usuário se deparará com a tela de login. Caso não possua uma conta, basta clicar em "Não possui 
+uma conta? Registrar-se" e realizar os procedimentos necessários para acessar as funcionalidades do app.
 
 ![image](https://user-images.githubusercontent.com/56042071/184971921-8d9662bb-a0ff-4387-b468-d2f1db5fa546.png)
 ![image](https://user-images.githubusercontent.com/56042071/184971718-450c32cf-0f44-45e9-92dc-f57f3443f846.png)
