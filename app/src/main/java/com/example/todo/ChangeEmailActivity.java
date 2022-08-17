@@ -22,14 +22,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ChangeEmailActivity extends AppCompatActivity {
 
-     Button btnConfirm;
-     EditText editTextNewEmail;
-     EditText editTextEmail;
-     EditText editTextPassword;
+     private Button btnConfirm;
+     private EditText editTextNewEmail;
+     private EditText editTextEmail;
+     private EditText editTextPassword;
 
-     String newEmail;
-     String currentEmail;
-     String currentPassword;
+     private String newEmail;
+     private String currentEmail;
+     private String currentPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,17 +70,21 @@ public class ChangeEmailActivity extends AppCompatActivity {
         assert user != null;
         user.reauthenticate(credential).addOnCompleteListener(task -> {
             Log.d(TAG, "User re-authenticated.");
+            setEmail();
+        });
+    }
 
-            //Change email address
-            FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-            assert user1 != null;
-            user1.updateEmail(newEmail).addOnCompleteListener(task1 -> {
-                if (task1.isSuccessful()) {
-                    Log.d(TAG, "User email address updated.");
-                    Toast.makeText(ChangeEmailActivity.this,
-                            "Email successfully changed", Toast.LENGTH_SHORT).show();
-                }
-            });
+    //setters
+    public void setEmail() {
+        //Change email address
+        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+        assert user1 != null;
+        user1.updateEmail(newEmail).addOnCompleteListener(task1 -> {
+            if (task1.isSuccessful()) {
+                Log.d(TAG, "User email address updated.");
+                Toast.makeText(ChangeEmailActivity.this,
+                        "Email successfully changed", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

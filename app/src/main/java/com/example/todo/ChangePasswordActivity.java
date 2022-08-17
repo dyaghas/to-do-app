@@ -17,16 +17,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
-    Button btnConfirmPasswordChange;
-    EditText editTextNewPassword;
-    EditText editTextEmail;
-    EditText editTextPassword;
-    EditText editTextConfirmNewPassword;
+    private Button btnConfirmPasswordChange;
+    private EditText editTextNewPassword;
+    private EditText editTextEmail;
+    private EditText editTextPassword;
+    private EditText editTextConfirmNewPassword;
 
-    String newPassword;
-    String currentEmail;
-    String currentPassword;
-    String confirmNewPassword;
+    private String newPassword;
+    private String currentEmail;
+    private String currentPassword;
+    private String confirmNewPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         btnConfirmPasswordChange.setOnClickListener(view -> {
             passResetViaEmail();
-
             finish();
         });
     }
@@ -70,21 +69,25 @@ public class ChangePasswordActivity extends AppCompatActivity {
             assert user != null;
             user.reauthenticate(credential).addOnCompleteListener(task -> {
                 Log.d(TAG, "User re-authenticated.");
-
-                //Change email address
-                FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-                assert user1 != null;
-                user1.updatePassword(newPassword).addOnCompleteListener(task1 -> {
-                    if (task1.isSuccessful()) {
-                        Log.d(TAG, "User password updated.");
-                        Toast.makeText(ChangePasswordActivity.this,
-                                "Password successfully changed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                setPassword();
             });
         } else {
             Toast.makeText(ChangePasswordActivity.this,
                     "Password does not match", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //setters
+    public void setPassword() {
+        //Change user password
+        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+        assert user1 != null;
+        user1.updatePassword(newPassword).addOnCompleteListener(task1 -> {
+            if (task1.isSuccessful()) {
+                Log.d(TAG, "User password updated.");
+                Toast.makeText(ChangePasswordActivity.this,
+                        "Password successfully changed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

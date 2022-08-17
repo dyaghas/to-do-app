@@ -10,7 +10,7 @@
     <string name="current_email">E-mail atual</string>
     <string name="current_password">Senha atual</string>
     <string name="go_to_login">Já possui uma conta? Entrar</string>
-    <string name="go_to_register">Registrar-se</string>
+    <string name="go_to_register">Não possui uma conta? Registrar-se</string>
     <string name="forgot_password">Esqueci a senha</string>
     <string name="button_todo">Novo</string>
     <string name="new_text_hint">Digite seu lembrete</string>
@@ -18,7 +18,7 @@
     <string name="day">Dia</string>
     <string name="month">Mês</string>
     <string name="year">Ano</string>
-    <string name="register">Registrar</string>
+    <string name="register">Cadastrar</string>
     <string name="login">Entrar</string>
     <string name="email">e-mail</string>
     <string name="new_password">Nova senha</string>

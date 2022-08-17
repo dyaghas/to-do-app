@@ -23,13 +23,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText registerEmail;
-    EditText registerPassword;
-    EditText confirmPassword;
+    private EditText registerEmail;
+    private EditText registerPassword;
+    private EditText confirmPassword;
 
-    TextView goToLogin;
+    private TextView goToLogin;
 
-    Button registerBtn;
+    private Button registerBtn;
 
     private FirebaseAuth mAuth;
 
