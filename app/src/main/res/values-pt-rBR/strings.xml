@@ -15,8 +15,11 @@
     <string name="button_todo">Novo</string>
     <string name="new_text_hint">Digite seu lembrete</string>
     <string name="new_date_hint">Escolha uma data</string>
-    <string name="day">Dia</string>
-    <string name="month">Mês</string>
+
+    <!--Month and day translations are swapped to compensate the different date format-->
+    <string name="day">Mês</string>
+    <string name="month">Dia</string>
+
     <string name="year">Ano</string>
     <string name="register">Cadastrar</string>
     <string name="login">Entrar</string>
@@ -24,4 +27,13 @@
     <string name="new_password">Nova senha</string>
     <string name="new_email">Novo e-mail</string>
     <string name="confirm_new_password">Confirmar nova senha</string>
+    <string name="invalid_date_format">Formato de data inválido.</string>
+    <string name="item_removed">Item removido.</string>
+    <string name="error">Erro.</string>
+    <string name="empty_text">Impossível adicionar texto vazio.</string>
+    <string name="email_change_success">E-mail alterado com sucesso.</string>
+    <string name="password_match_false">As senhas não correspondem.</string>
+    <string name="password_change_success">Senha alterada com sucesso.</string>
+    <string name="failed_authentication">A autenticação falhou.</string>
+    <string name="account_creation_success">Conta criada com sucesso.</string>
 </resources>

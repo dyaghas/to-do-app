@@ -76,9 +76,10 @@ public class RegisterActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
-                                Toast.makeText(RegisterActivity.this,
-                                        "Account successfully created", Toast.LENGTH_SHORT)
-                                        .show();
+                                String toastMessage = RegisterActivity.this.getResources().
+                                        getString(R.string.account_creation_success);
+                                Toast.makeText(RegisterActivity.this, toastMessage,
+                                        Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
 
                                 startActivity(new Intent(
@@ -86,8 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(RegisterActivity.this,
-                                        "Authentication failed", Toast.LENGTH_SHORT).show();
+                                String toastMessage = RegisterActivity.this.getResources().
+                                        getString(R.string.failed_authentication);
+                                Toast.makeText(RegisterActivity.this, toastMessage,
+                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

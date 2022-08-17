@@ -32,4 +32,15 @@
     <string name="year">Year</string>
     <string name="dash" translatable="false">-</string>
     <string name="register">Register</string>
+
+    <!--Toasts-->
+    <string name="invalid_date_format">Invalid date format.</string>
+    <string name="item_removed">Item removed.</string>
+    <string name="error">Error.</string>
+    <string name="empty_text">Cannot add empty text.</string>
+    <string name="email_change_success">Email successfully changed.</string>
+    <string name="password_change_success">Password Successfully changed</string>
+    <string name="password_match_false">Password does not match.</string>
+    <string name="failed_authentication">Authentication failed.</string>
+    <string name="account_creation_success">Account successfully created.</string>
 </resources>

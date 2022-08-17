@@ -25,9 +25,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -137,17 +140,34 @@ public class MainActivity extends AppCompatActivity {
     //Methods
 
     private boolean checkDate() {
-        String date = getItemDate();
+        Locale locale = Locale.getDefault();
+        System.out.println(locale);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-
-        dateFormat.setLenient(false);
-        try {
-            dateFormat.parse(date.trim());
-        } catch(ParseException pe) {
-            return false;
+        //Formats date with Locale.ITALY (there's no locale for Brazil).
+        if(locale.toString().equals("pt_BR")) {
+            String date = getItemDate();
+            DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+            df.setLenient(false);
+            try {
+                df.parse(date);
+            } catch (ParseException pe) {
+                return false;
+            }
+            return true;
+        } else {
+            //Formats date with Locale.ENGLISH
+            String date = getItemDate();
+            DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ENGLISH);
+            df.setLenient(false);
+            try {
+                df.parse(date);
+            } catch (ParseException pe) {
+                Toast.makeText(getApplicationContext(),
+                        "Invalid date format", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            return true;
         }
-        return true;
     }
 
     //remove the list item with index i
@@ -157,10 +177,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(),
-                            "ToDo removed", Toast.LENGTH_SHORT).show();
+                    String toastMessage = MainActivity.this.getResources().
+                            getString(R.string.item_removed);
+                    Toast.makeText(MainActivity.this, toastMessage,
+                            Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                    String toastMessage = MainActivity.this.getResources().
+                            getString(R.string.error);
+                    Toast.makeText(MainActivity.this, toastMessage,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -181,13 +206,12 @@ public class MainActivity extends AppCompatActivity {
                 inputMonth.setText("");
                 inputDay.setText("");
                 inputYear.setText("");
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "Invalid date format", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(),
-                    "Cannot add empty text", Toast.LENGTH_SHORT).show();
+            String toastMessage = MainActivity.this.getResources().
+                    getString(R.string.empty_text);
+            Toast.makeText(MainActivity.this, toastMessage,
+                    Toast.LENGTH_SHORT).show();
         }
         //Firebase realtime database
         ref.setValue(items);
@@ -199,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setItemDate() {
-        this.itemDate = inputMonth.getText().toString()+"-"+inputDay.getText().toString()+"-"+
+        this.itemDate = inputMonth.getText().toString()+"/"+inputDay.getText().toString()+"/"+
                 inputYear.getText().toString();
     }
 

@@ -73,7 +73,9 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
                         Log.w(TAG, "signinwithemail:failure", task.getException());
-                        Toast.makeText(LoginActivity.this, "Authentication failed",
+                        String toastMessage = LoginActivity.this.getResources().
+                                getString(R.string.failed_authentication);
+                        Toast.makeText(LoginActivity.this, toastMessage,
                                 Toast.LENGTH_SHORT).show();
                     }
                 }

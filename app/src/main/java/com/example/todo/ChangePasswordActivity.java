@@ -72,8 +72,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 setPassword();
             });
         } else {
-            Toast.makeText(ChangePasswordActivity.this,
-                    "Password does not match", Toast.LENGTH_SHORT).show();
+            String toastMessage = ChangePasswordActivity.this.getResources().
+                    getString(R.string.password_match_false);
+            Toast.makeText(ChangePasswordActivity.this, toastMessage,
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -85,8 +87,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
         user1.updatePassword(newPassword).addOnCompleteListener(task1 -> {
             if (task1.isSuccessful()) {
                 Log.d(TAG, "User password updated.");
-                Toast.makeText(ChangePasswordActivity.this,
-                        "Password successfully changed", Toast.LENGTH_SHORT).show();
+                String toastMessage = ChangePasswordActivity.this.getResources().
+                        getString(R.string.password_change_success);
+                Toast.makeText(ChangePasswordActivity.this, toastMessage,
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
