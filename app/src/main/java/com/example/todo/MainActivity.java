@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -134,6 +136,20 @@ public class MainActivity extends AppCompatActivity {
 
     //Methods
 
+    private boolean checkDate() {
+        String date = getItemDate();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(date.trim());
+        } catch(ParseException pe) {
+            return false;
+        }
+        return true;
+    }
+
     //remove the list item with index i
     private void removeData(int i) {
         ref.child(String.valueOf(i)).removeValue().
@@ -158,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
         //verifies if the string is not empty
         if(!(getItemText().equals(""))) {
-            if((getItemDate().length() == 8 | getItemDate().length() == 10)) {
+            if(checkDate()) {
                 itemsAdapter.add(getItemText() + "   " + getItemDate());
                 //resets the string inside the input so it can be used again
                 inputText.setText("");
