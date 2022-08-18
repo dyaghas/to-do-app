@@ -3,7 +3,7 @@
     <string name="password">Senha</string>
     <string name="confirm_password">Confirmar senha</string>
     <string name="confirm">Confirmar</string>
-    <string name="options">Opções</string>
+    <string name="settings">Opções</string>
     <string name="logout">Sair</string>
     <string name="change_email">Alterar e-mail</string>
     <string name="change_password">Alterar senha</string>
@@ -36,4 +36,5 @@
     <string name="password_change_success">Senha alterada com sucesso.</string>
     <string name="failed_authentication">A autenticação falhou.</string>
     <string name="account_creation_success">Conta criada com sucesso.</string>
+    <string name="empty_fields">Preencha todos os campos.</string>
 </resources>

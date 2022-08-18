@@ -23,6 +23,7 @@
             android:layout_height="24dp"
             android:layout_weight="1"
             android:background="@drawable/ic_baseline_settings_48"
+            android:contentDescription="@string/settings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"

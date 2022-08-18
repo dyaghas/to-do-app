@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Button;
@@ -49,7 +50,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         btnConfirmPasswordChange.setOnClickListener(view -> {
             passResetViaEmail();
-            finish();
         });
     }
 
@@ -59,23 +59,32 @@ public class ChangePasswordActivity extends AppCompatActivity {
         newPassword = editTextNewPassword.getText().toString();
         confirmNewPassword = editTextConfirmNewPassword.getText().toString();
 
-        if(confirmNewPassword.equals(newPassword)) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-            AuthCredential credential = EmailAuthProvider
-                    .getCredential(currentEmail, currentPassword);
-
-            //prompt user authentication as changing password address is a sensitive operation
-            assert user != null;
-            user.reauthenticate(credential).addOnCompleteListener(task -> {
-                Log.d(TAG, "User re-authenticated.");
-                setPassword();
-            });
-        } else {
+        if(TextUtils.isEmpty(currentEmail) || TextUtils.isEmpty(currentPassword) ||
+                TextUtils.isEmpty(newPassword) || TextUtils.isEmpty(confirmNewPassword)) {
             String toastMessage = ChangePasswordActivity.this.getResources().
-                    getString(R.string.password_match_false);
+                    getString(R.string.empty_fields);
             Toast.makeText(ChangePasswordActivity.this, toastMessage,
                     Toast.LENGTH_SHORT).show();
+        } else {
+            if(confirmNewPassword.equals(newPassword)) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                AuthCredential credential = EmailAuthProvider
+                        .getCredential(currentEmail, currentPassword);
+
+                //prompt user authentication as changing password address is a sensitive operation
+                assert user != null;
+                user.reauthenticate(credential).addOnCompleteListener(task -> {
+                    Log.d(TAG, "User re-authenticated.");
+                    setPassword();
+                    finish();
+                });
+            } else {
+                String toastMessage = ChangePasswordActivity.this.getResources().
+                        getString(R.string.password_match_false);
+                Toast.makeText(ChangePasswordActivity.this, toastMessage,
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

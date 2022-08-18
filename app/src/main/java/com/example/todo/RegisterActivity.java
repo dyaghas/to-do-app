@@ -66,7 +66,9 @@ public class RegisterActivity extends AppCompatActivity {
         String password = registerPassword.getText().toString();
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(RegisterActivity.this, "Fill all fields",
+            String toastMessage = RegisterActivity.this.getResources().
+                    getString(R.string.failed_authentication);
+            Toast.makeText(RegisterActivity.this, toastMessage,
                     Toast.LENGTH_SHORT).show();
         } else {
             mAuth.createUserWithEmailAndPassword(email, password)

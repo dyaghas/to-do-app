@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -51,8 +52,6 @@ public class ChangeEmailActivity extends AppCompatActivity {
 
         btnConfirm.setOnClickListener(view -> {
             changeEmail();
-
-            finish();
         });
     }
 
@@ -61,17 +60,25 @@ public class ChangeEmailActivity extends AppCompatActivity {
         currentEmail = editTextEmail.getText().toString();
         currentPassword = editTextPassword.getText().toString();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(TextUtils.isEmpty(newEmail) || TextUtils.isEmpty(currentEmail) ||
+                TextUtils.isEmpty(currentPassword)) {
+            String toastMessage = ChangeEmailActivity.this.getResources().
+                    getString(R.string.empty_fields);
+            Toast.makeText(ChangeEmailActivity.this, toastMessage,
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            AuthCredential credential = EmailAuthProvider
+                    .getCredential(currentEmail, currentPassword);
 
-        AuthCredential credential = EmailAuthProvider
-                .getCredential(currentEmail, currentPassword);
-
-        //prompt user authentication as changing email address is a sensitive operation
-        assert user != null;
-        user.reauthenticate(credential).addOnCompleteListener(task -> {
-            Log.d(TAG, "User re-authenticated.");
-            setEmail();
-        });
+            //prompt user authentication as changing email address is a sensitive operation
+            assert user != null;
+            user.reauthenticate(credential).addOnCompleteListener(task -> {
+                Log.d(TAG, "User re-authenticated.");
+                setEmail();
+                finish();
+            });
+        }
     }
 
     //setters
