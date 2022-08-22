@@ -141,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkDate() {
         Locale locale = Locale.getDefault();
-        System.out.println(locale);
 
         //Formats date with Locale.ITALY (there's no locale for Brazil).
         if(locale.toString().equals("pt_BR")) {
@@ -151,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
             try {
                 df.parse(date);
             } catch (ParseException pe) {
+                String toastMessage = MainActivity.this.getResources().
+                        getString(R.string.invalid_date_format);
+                Toast.makeText(MainActivity.this, toastMessage,
+                        Toast.LENGTH_SHORT).show();
                 return false;
             }
             return true;
@@ -162,8 +165,10 @@ public class MainActivity extends AppCompatActivity {
             try {
                 df.parse(date);
             } catch (ParseException pe) {
-                Toast.makeText(getApplicationContext(),
-                        "Invalid date format", Toast.LENGTH_SHORT).show();
+                String toastMessage = MainActivity.this.getResources().
+                        getString(R.string.invalid_date_format);
+                Toast.makeText(MainActivity.this, toastMessage,
+                        Toast.LENGTH_SHORT).show();
                 return false;
             }
             return true;
@@ -197,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         setItemText();
         setItemDate();
 
-        //verifies if the string is not empty
+        //verifies if the inputs are valid
         if(!(getItemText().equals(""))) {
             if(checkDate()) {
                 itemsAdapter.add(getItemText() + "   " + getItemDate());

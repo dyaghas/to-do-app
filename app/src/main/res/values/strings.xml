@@ -34,7 +34,7 @@
     <string name="register">Register</string>
 
     <!--Toasts-->
-    <string name="invalid_date_format">Invalid date format.</string>
+    <string name="invalid_date_format">Invalid date.</string>
     <string name="item_removed">Item removed.</string>
     <string name="error">Error.</string>
     <string name="empty_text">Cannot add empty text.</string>

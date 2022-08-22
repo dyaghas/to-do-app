@@ -68,11 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
-                        Log.d(TAG, "signinwithemail:success");
+                        Log.d(TAG, "sign in with email: success");
                         FirebaseUser user = mAuth.getCurrentUser();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
-                        Log.w(TAG, "signinwithemail:failure", task.getException());
+                        Log.w(TAG, "sign in with email: failure", task.getException());
                         String toastMessage = LoginActivity.this.getResources().
                                 getString(R.string.failed_authentication);
                         Toast.makeText(LoginActivity.this, toastMessage,

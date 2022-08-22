@@ -27,7 +27,7 @@
     <string name="new_password">Nova senha</string>
     <string name="new_email">Novo e-mail</string>
     <string name="confirm_new_password">Confirmar nova senha</string>
-    <string name="invalid_date_format">Formato de data inválido.</string>
+    <string name="invalid_date_format">Data inválida.</string>
     <string name="item_removed">Item removido.</string>
     <string name="error">Erro.</string>
     <string name="empty_text">Impossível adicionar texto vazio.</string>
