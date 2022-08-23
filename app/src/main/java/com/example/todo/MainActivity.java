@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Firebase authentication
         mAuth = FirebaseAuth.getInstance();
-
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,6 +94,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        checkUser();
+    }
+
+    private void setUpListViewListener() { //method that removes an item if a long click happens
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Context context = getApplicationContext();
+                removeData(i);
+                return true;
+            }
+        });
+    }
+
+    //Methods
+
+    private void checkUser() {
         //goes to login activity if no logged user is detected in the device
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null) {
@@ -121,23 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
     }
-
-    private void setUpListViewListener() { //method that removes an item if a long click happens
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Context context = getApplicationContext();
-
-                removeData(i);
-
-                return true;
-            }
-        });
-    }
-
-    //Methods
 
     private boolean checkDate() {
         Locale locale = Locale.getDefault();
@@ -177,25 +177,23 @@ public class MainActivity extends AppCompatActivity {
 
     //remove the list item with index i
     private void removeData(int i) {
-        ref.child(String.valueOf(i)).removeValue().
-                addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        String itemValue = (String) listView.getItemAtPosition(i);
+
+        ref.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()) {
-                    String toastMessage = MainActivity.this.getResources().
-                            getString(R.string.item_removed);
-                    Toast.makeText(MainActivity.this, toastMessage,
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    String toastMessage = MainActivity.this.getResources().
-                            getString(R.string.error);
-                    Toast.makeText(MainActivity.this, toastMessage,
-                            Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot data : snapshot.getChildren()) {
+                    if(data.getValue().equals(itemValue)) {
+                        data.getRef().removeValue();
+                    }
                 }
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
-        items.remove(i);
-        itemsAdapter.notifyDataSetChanged();
     }
 
     private void addItem(View view) {
