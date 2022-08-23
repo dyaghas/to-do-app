@@ -16,7 +16,7 @@ Português
 
 ## General info
 
-Android application that allows the creation of a to-do list.
+Tool that allows the creation of a to-do list stored in a Firebase database.
 
 Obs: the app is still in development, because of that, it is possible that some tools where not implemented or are not working properly.
 
@@ -65,7 +65,7 @@ To change the email address, it is necessary to provide the user credentials aga
 
 ## Informações gerais
 
-Aplicativo android que permite a criação de lembretes.
+Ferramenta que permite a criação de lembretes armazenados em um banco de dados Firebase.
 
 Obs: o aplicativo ainda está em desenvolvimento e por isso, algumas funcionalidades podem não ter sido implementadas ou não estarem 
 funcionando.
