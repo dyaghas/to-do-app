@@ -24,9 +24,15 @@ Obs: the app is still in development, because of that, it is possible that some 
 
 - firebase-database
 - firebase-analytics
-- firebase-auth versão: 21.0.7
+- firebase-auth version: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
-  
+
+## How to use
+
+- Install the most recent Android Studio version available at: https://developer.android.com/studio; 
+- Clone the repository on your machine: git clone https://github.com/dyaghas/ToDoApp.git;
+- Execute the app.
+
 ## Functionalities
 
 ### Register / login
@@ -74,8 +80,14 @@ funcionando.
 
 - firebase-database
 - firebase-analytics
-- firebase-auth version: 21.0.7
+- firebase-auth versão: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
+
+## Como usar
+
+- Instale a versão mais recente do Android Studio disponível em: https://developer.android.com/studio;
+- Clone o repositório na sua máquina com o comando: git clone https://github.com/dyaghas/ToDoApp.git;
+- Execute o projeto no Android Studio.
 
 ## Funcionalidades
 
