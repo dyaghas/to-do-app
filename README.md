@@ -16,7 +16,7 @@ Português
 
 ## General info
 
-Android application that allows the creation of a to-do list.
+Tool that allows the creation of a to-do list stored in a Firebase database.
 
 Obs: the app is still in development, because of that, it is possible that some tools where not implemented or are not working properly.
 
@@ -24,9 +24,15 @@ Obs: the app is still in development, because of that, it is possible that some 
 
 - firebase-database
 - firebase-analytics
-- firebase-auth versão: 21.0.7
+- firebase-auth version: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
-  
+
+## How to use
+
+- Install the most recent Android Studio version available at: https://developer.android.com/studio; 
+- Clone the repository on your machine: git clone https://github.com/dyaghas/ToDoApp.git;
+- Execute the app.
+
 ## Functionalities
 
 ### Register / login
@@ -65,7 +71,7 @@ To change the email address, it is necessary to provide the user credentials aga
 
 ## Informações gerais
 
-Aplicativo android que permite a criação de lembretes.
+Ferramenta que permite a criação de lembretes armazenados em um banco de dados Firebase.
 
 Obs: o aplicativo ainda está em desenvolvimento e por isso, algumas funcionalidades podem não ter sido implementadas ou não estarem 
 funcionando.
@@ -74,8 +80,14 @@ funcionando.
 
 - firebase-database
 - firebase-analytics
-- firebase-auth version: 21.0.7
+- firebase-auth versão: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
+
+## Como usar
+
+- Instale a versão mais recente do Android Studio disponível em: https://developer.android.com/studio;
+- Clone o repositório na sua máquina com o comando: git clone https://github.com/dyaghas/ToDoApp.git;
+- Execute o projeto no Android Studio.
 
 ## Funcionalidades
 
