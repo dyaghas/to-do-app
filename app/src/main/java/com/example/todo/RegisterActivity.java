@@ -64,10 +64,18 @@ public class RegisterActivity extends AppCompatActivity {
     private void registerUser() {
         String email = registerEmail.getText().toString();
         String password = registerPassword.getText().toString();
+        String cp = confirmPassword.getText().toString();
 
+        //Empty fields
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             String toastMessage = RegisterActivity.this.getResources().
-                    getString(R.string.failed_authentication);
+                    getString(R.string.empty_fields);
+            Toast.makeText(RegisterActivity.this, toastMessage,
+                    Toast.LENGTH_SHORT).show();
+        //Password fields does not match
+        } else if(!cp.equals(password)) {
+            String toastMessage = RegisterActivity.this.getResources().
+                    getString(R.string.password_match_false);
             Toast.makeText(RegisterActivity.this, toastMessage,
                     Toast.LENGTH_SHORT).show();
         } else {
@@ -76,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
+                                // Sign up success, update UI with the signed-up user's information
                                 Log.d(TAG, "createUserWithEmail:success");
                                 String toastMessage = RegisterActivity.this.getResources().
                                         getString(R.string.account_creation_success);
@@ -87,10 +95,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 startActivity(new Intent(
                                         RegisterActivity.this, LoginActivity.class));
                             } else {
-                                // If sign in fails, display a message to the user.
+                                // If sign up fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                 String toastMessage = RegisterActivity.this.getResources().
-                                        getString(R.string.failed_authentication);
+                                        getString(R.string.failed_acc_creation);
                                 Toast.makeText(RegisterActivity.this, toastMessage,
                                         Toast.LENGTH_SHORT).show();
                             }

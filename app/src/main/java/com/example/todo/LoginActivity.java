@@ -58,10 +58,10 @@ public class LoginActivity extends AppCompatActivity {
         String password = loginPassword.getText().toString();
 
         if(TextUtils.isEmpty(email)) {
-            loginEmail.setError(("The email field is empty"));
+            loginEmail.setError((getString(R.string.empty_fields)));
             loginEmail.requestFocus();
         } else if(TextUtils.isEmpty(password)) {
-            loginPassword.setError(("The password field is empty"));
+            loginPassword.setError((getString(R.string.empty_fields)));
             loginPassword.requestFocus();
         } else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

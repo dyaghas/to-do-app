@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             //Firebase realtime database
             //Takes the current user reference in the realtime database
             ref = FirebaseDatabase.getInstance().getReference(Objects.requireNonNull(mAuth.getUid()));
+            ref.keepSynced(true);
 
             //Loads all references previously created by the user
             ref.addValueEventListener(new ValueEventListener() {

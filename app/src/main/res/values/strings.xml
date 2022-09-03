@@ -42,6 +42,7 @@
     <string name="password_change_success">Password Successfully changed</string>
     <string name="password_match_false">Password does not match.</string>
     <string name="failed_authentication">Authentication failed.</string>
+    <string name="failed_acc_creation">Creating account was not possible</string>
     <string name="empty_fields">Fill all fields.</string>
     <string name="account_creation_success">Account successfully created.</string>
 </resources>
