@@ -14,7 +14,7 @@ Português
 * [Funcionalidades](#funcionalidades)
 * [Configurações](#configurações)
 
-## General info
+# General info
 
 Tool that allows the creation and storage of reminders in a Firebase database.
 
@@ -22,10 +22,15 @@ Obs: the app is still in development. Some tools may not work properly.
 
 ## Technologies
 
-- firebase-database
-- firebase-analytics
 - firebase-auth version: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
+
+## Features
+
+- Realtime Database (offline data access is planned);
+- Firebase Authentication (only email/password for now, authentication through Google is planned);
+- Password / email change;
+- Forgot password (not implemented yet).
 
 ## How to use
 
@@ -62,7 +67,7 @@ To change the email address, it is necessary to provide the user credentials aga
 
 # Português
 
-## Informações gerais
+# Informações gerais
 
 Ferramenta que permite a criação e o armazenamento de lembretes em um banco de dados Firebase.
 
@@ -71,10 +76,15 @@ funcionando.
 
 ## Tecnologias
 
-- firebase-database
-- firebase-analytics
 - firebase-auth versão: 21.0.7
 - Android Studio Chipmunk | 2021.2.1
+
+## Recursos
+
+- Realtime Database (acesso a dados offline planejado);
+- Firebase Authentication (apenas através de e-mail / senha. Auntenticação através do Google planejada);
+- Alteração de e-mail / senha;
+- Esqueci a senha (não implementado ainda).
 
 ## Como usar
 
