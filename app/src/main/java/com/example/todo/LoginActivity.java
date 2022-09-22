@@ -40,11 +40,14 @@ public class LoginActivity extends AppCompatActivity {
 
         loginEmail = findViewById(R.id.editTextEmail);
         loginPassword = findViewById(R.id.editTextPassword);
-
         goToRegister = findViewById(R.id.textViewGoToRegister);
+        forgotPassword = findViewById(R.id.textViewForgotPassword);
 
+        //ClickListeners
         goToRegister.setOnClickListener(view ->
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+        forgotPassword.setOnClickListener(view ->
+                startActivity(new Intent(LoginActivity.this, ResetPassword.class)));
 
         loginBtn = findViewById(R.id.loginBtn);
 

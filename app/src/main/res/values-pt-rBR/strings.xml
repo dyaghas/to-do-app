@@ -15,6 +15,7 @@
     <string name="button_todo">Novo</string>
     <string name="new_text_hint">Digite seu lembrete</string>
     <string name="new_date_hint">Escolha uma data</string>
+    <string name="reset_password">Redefinir senha</string>
 
     <!--Month and day translations are swapped to compensate the different date format-->
     <string name="day">Mês</string>

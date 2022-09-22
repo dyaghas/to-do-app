@@ -22,6 +22,7 @@
     <string name="go_to_login">Already have an account? Login</string>
     <string name="go_to_register">Register now</string>
     <string name="forgot_password">forgot password</string>
+    <string name="reset_password">Reset password</string>
 
     <string name="button_todo">New</string>
     <string name="new_text_hint">Type your To Do</string>
