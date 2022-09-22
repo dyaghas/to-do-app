@@ -136,25 +136,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dash"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextMonth"
-        app:layout_constraintStart_toEndOf="@+id/editTextDay"
-        app:layout_constraintTop_toBottomOf="@+id/todoEditText" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dash"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextYear"
-        app:layout_constraintStart_toEndOf="@+id/editTextMonth"
-        app:layout_constraintTop_toBottomOf="@+id/todoEditText" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

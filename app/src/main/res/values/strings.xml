@@ -1,43 +1,45 @@
 <resources>
     <string name="app_name" translatable="false">ToDo</string>
 
+    <!--general-->
+    <string name="confirm">Confirm</string>
+    <string name="button_todo">New</string>
+    <string name="new_text_hint">Type your To Do</string>
+
+    <!--login / register-->
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="go_to_register">Register now</string>
+    <string name="forgot_password">forgot password</string>
+    <string name="reset_password">Reset password</string>
+    <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
-    <string name="confirm">Confirm</string>
 
-    <string name="settings">Settings</string>
-    <string name="logout">Log out</string>
-    <string name="change_email">Change email</string>
-    <string name="change_password">Change password</string>
-
+    <!--Change password / email-->
     <string name="current_email">Current email</string>
     <string name="new_email">New email</string>
     <string name="current_password">Current password</string>
     <string name="new_password">New password</string>
     <string name="confirm_new_password">Confirm new password</string>
 
+    <!--options-->
+    <string name="settings">Settings</string>
+    <string name="logout">Log out</string>
+    <string name="change_email">Change email</string>
+    <string name="change_password">Change password</string>
 
-    <string name="go_to_login">Already have an account? Login</string>
-    <string name="go_to_register">Register now</string>
-    <string name="forgot_password">forgot password</string>
-    <string name="reset_password">Reset password</string>
-
-    <string name="button_todo">New</string>
-    <string name="new_text_hint">Type your To Do</string>
-    <string name="new_date_hint">Choose a date</string>
-
+    <!--date-->
     <string name="day">Day</string>
     <string name="month">Month</string>
     <string name="year">Year</string>
-    <string name="dash" translatable="false">-</string>
-    <string name="register">Register</string>
+    <string name="new_date_hint">Choose a date</string>
 
     <!--Toasts-->
     <string name="invalid_date_format">Invalid date.</string>
     <string name="item_removed">Item removed.</string>
-    <string name="error">Error.</string>
+    <string name="error">Error</string>
     <string name="empty_text">Cannot add empty text.</string>
     <string name="email_change_success">Email successfully changed.</string>
     <string name="password_change_success">Password Successfully changed</string>
@@ -46,4 +48,5 @@
     <string name="failed_acc_creation">Creating account was not possible</string>
     <string name="empty_fields">Fill all fields.</string>
     <string name="account_creation_success">Account successfully created.</string>
+    <string name="email_sent">Email successfully sent</string>
 </resources>
