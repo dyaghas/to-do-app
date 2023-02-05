@@ -30,7 +30,7 @@ Obs: the app is still in development. Some tools may not work properly.
 - Realtime Database (offline data access is planned);
 - Firebase Authentication (only email/password for now, authentication through Google is planned);
 - Password / email change;
-- Forgot password (not implemented yet).
+- Forgot password.
 
 ## How to use
 
@@ -84,7 +84,7 @@ funcionando.
 - Realtime Database (acesso a dados offline planejado);
 - Firebase Authentication (apenas através de e-mail / senha. Auntenticação através do Google planejada);
 - Alteração de e-mail / senha;
-- Esqueci a senha (não implementado ainda).
+- Esqueci a senha.
 
 ## Como usar
 
