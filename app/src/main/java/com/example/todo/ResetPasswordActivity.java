@@ -33,10 +33,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
         sendPasswordResetBtn = findViewById(R.id.sendPasswordResetBtn);
 
         sendPasswordResetBtn.setOnClickListener(view -> {
-            email = emailTextView.getText().toString();
+            setEmail(emailTextView.getText().toString());
 
             //Verifies if a textview is empty or not
-            if(TextUtils.isEmpty(email)) {
+            if(TextUtils.isEmpty(getEmail())) {
                 String toastMessage = ResetPasswordActivity.this.getResources().
                         getString(R.string.empty_fields);
                 Toast.makeText(ResetPasswordActivity.this, toastMessage,
@@ -54,7 +54,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     }
 
     public void resetPassword() {
-        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+        FirebaseAuth.getInstance().sendPasswordResetEmail(getEmail())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -64,6 +64,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             .getString(R.string.email_sent);
                     Toast.makeText(ResetPasswordActivity.this, toastMessage,
                             Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Log.w(TAG, "resetPassword:failed to send", task.getException());
                     String toastMessage = ResetPasswordActivity.this.getResources()
@@ -73,5 +74,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
