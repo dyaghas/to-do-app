@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">ToDo</string>
 
     <!--general-->
+    <string name="menu" translatable="false">Menu</string>
     <string name="confirm">Confirm</string>
     <string name="button_todo">New</string>
     <string name="new_text_hint">Type your To Do</string>

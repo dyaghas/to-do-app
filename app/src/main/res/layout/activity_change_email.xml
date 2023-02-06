@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ChangeEmailActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/primary"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -15,48 +36,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.110000014" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <EditText
         android:id="@+id/editTextCurrentEmail"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
+        android:autofillHints="Example@email.com"
         android:ems="10"
         android:hint="@string/current_email"
-        android:autofillHints="Example@email.com"
         android:inputType="textEmailAddress"
         android:textColorHint="#4d4d4d"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.22000003" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <EditText
         android:id="@+id/editTextCurrentPassword"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
+        android:autofillHints="password"
         android:ems="10"
         android:hint="@string/current_password"
-        android:autofillHints="password"
         android:inputType="textPassword"
         android:textColorHint="#4d4d4d"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCurrentEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCurrentEmail"
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <EditText
         android:id="@+id/editTextChangeEmail"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
+        android:autofillHints="Example@email.com"
         android:ems="10"
         android:hint="@string/new_email"
-        android:autofillHints="Example@email.com"
         android:inputType="textEmailAddress"
         android:textColorHint="#4d4d4d"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCurrentPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCurrentPassword"
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <Button
         android:id="@+id/btnConfirm"

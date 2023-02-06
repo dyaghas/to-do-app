@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Firebase authentication
         mAuth = FirebaseAuth.getInstance();
+
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
