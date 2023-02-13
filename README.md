@@ -16,7 +16,7 @@ Português
 
 # General info
 
-Tool that allows the creation and storage of reminders in a Firebase database.
+A Tool that allows the creation and storage of reminders in a Firebase database.
 
 Obs: the app is still in development. Some tools may not work properly.
 
