@@ -1,9 +1,15 @@
 package com.example.todo;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,16 +44,14 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
-    private Button btnAdd;
+    private Button btnNewTodo;
     private Button btnConfig;
-
-    private EditText inputText;
-    private EditText inputMonth;
-    private EditText inputDay;
-    private EditText inputYear;
 
     private String itemText;
     private String itemDate;
+
+    private ActivityResultLauncher<Intent> activityResultLauncher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +61,24 @@ public class MainActivity extends AppCompatActivity {
         btnConfig = findViewById(R.id.btnConfig);
 
         listView = findViewById(R.id.listView);
-        btnAdd = findViewById(R.id.buttonAdd);
-
-        inputText = findViewById(R.id.todoEditText);
-
-        inputMonth = findViewById(R.id.editTextMonth);
-        inputDay = findViewById(R.id.editTextDay);
-        inputYear = findViewById(R.id.editTextYear);
+        btnNewTodo = findViewById(R.id.buttonNew);
 
         items = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(itemsAdapter);
         setUpListViewListener();
+
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode() == Activity.RESULT_OK) {
+                    itemText = result.getData().getStringExtra("message");
+                    itemDate = result.getData().getStringExtra("date");
+
+                    addItem(itemText, itemDate);
+                }
+            }
+        });
 
         btnConfig.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,10 +91,11 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnNewTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addItem(view);
+                activityResultLauncher.launch(new Intent(
+                        MainActivity.this, AddTodoActivity.class));
             }
         });
     }
@@ -143,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Formats date with Locale.ITALY (there's no locale for Brazil).
         if(locale.toString().equals("pt_BR")) {
-            String date = getItemDate();
+            String date = itemDate;
             DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
             df.setLenient(false);
             try {
@@ -158,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else {
             //Formats date with Locale.ENGLISH
-            String date = getItemDate();
+            String date = itemDate;
             DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ENGLISH);
             df.setLenient(false);
             try {
@@ -195,19 +206,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void addItem(View view) {
-        setItemText();
-        setItemDate();
-
+    private void addItem(String itemText, String itemDate) {
         //verifies if the inputs are valid
-        if(!(getItemText().equals(""))) {
+        if(!(itemText.equals(""))) {
             if(checkDate()) {
-                itemsAdapter.add(getItemText() + "   " + getItemDate());
-                //resets the string inside the input so it can be used again
-                inputText.setText("");
-                inputMonth.setText("");
-                inputDay.setText("");
-                inputYear.setText("");
+                itemsAdapter.add(itemText + "   " + itemDate);
             }
         } else {
             String toastMessage = MainActivity.this.getResources().
@@ -218,24 +221,4 @@ public class MainActivity extends AppCompatActivity {
         //Firebase realtime database
         ref.setValue(items);
     }
-
-    //setters
-    public void setItemText() {
-        this.itemText = inputText.getText().toString();
-    }
-
-    public void setItemDate() {
-        this.itemDate = inputMonth.getText().toString()+"/"+inputDay.getText().toString()+"/"+
-                inputYear.getText().toString();
-    }
-
-    //getters
-    public String getItemText() {
-        return this.itemText;
-    }
-
-    public String getItemDate() {
-        return this.itemDate;
-    }
-
 }
